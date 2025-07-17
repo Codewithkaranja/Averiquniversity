@@ -3,7 +3,232 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Faculty Portal</title>
+    <style>
+      /* Reset and Global */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Login Screen */
+      .login-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #1e1e2f;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .login-screen h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .login-screen input {
+        padding: 12px;
+        width: 250px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 6px;
+      }
+
+      .login-screen button {
+        padding: 10px 20px;
+        background-color: #ffd700;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .login-screen button:hover {
+        background-color: #f7c500;
+      }
+
+      /* Portal */
+      .portal header {
+        background-color: #1e1e2f;
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .portal header h1 {
+        font-size: 24px;
+      }
+
+      .portal header button {
+        padding: 8px 16px;
+        background: crimson;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .portal nav {
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+      }
+
+      .portal nav button {
+        background: #ffd700;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .portal nav button:hover {
+        background-color: #f7c500;
+      }
+
+      main {
+        padding: 30px;
+      }
+
+      .section {
+        display: none;
+      }
+
+      .section.active {
+        display: block;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1e1e2f;
+        color: #fff;
+        padding: 60px 20px 30px;
+        margin-top: 60px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 40px;
+      }
+
+      .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #ffd700;
+      }
+
+      .footer-column p {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        font-size: 15px;
+      }
+
+      .footer-links a:hover {
+        color: #fff;
+      }
+
+      .social-links ul {
+        display: flex;
+        gap: 10px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .social-links i,
+      .social-links img {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        background: #fff;
+        color: #1e1e2f;
+        border-radius: 50%;
+        padding: 6px;
+        text-align: center;
+        line-height: 18px;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover i,
+      .social-links a:hover img {
+        background-color: #ffd700;
+      }
+
+      .contact-info {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        gap: 10px;
+        font-size: 15px;
+      }
+
+      .contact-info i {
+        font-size: 18px;
+        color: #ffd700;
+        margin-top: 3px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        font-size: 14px;
+        border-top: 1px solid #444;
+        color: #bbb;
+      }
+
+      @media (max-width: 768px) {
+        .portal nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .footer-column {
+          text-align: center;
+        }
+
+        .social-links ul {
+          justify-content: center;
+        }
+      }
+    </style>
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -51,6 +276,104 @@
         </section>
       </main>
     </div>
+    <!-- Footer -->
+    <section id="Contact_Us">
+      <footer>
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h3>Averiq International University</h3>
+              <p>
+                Excellence in education since 1992. Averiq International
+                University is dedicated to fostering intellectual growth,
+                creativity, and character in a diverse academic community.
+              </p>
+              <div class="social-links" class="fix-me">
+                <ul class="fix-me">
+                  <li>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100026515992622"
+                      target="_blank"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
+                      target="_blank"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://wa.me/254723562484" target="_blank">
+                      <img src="whatsapp logo.png" alt="WhatsApp" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="#">About Averiq</a></li>
+                <li><a href="#">Academic Programs</a></li>
+                <li><a href="#">Admissions & Aid</a></li>
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Alumni</a></li>
+                <li><a href="#">News & Events</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Resources</h3>
+              <ul class="footer-links">
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Career Services</a></li>
+                <li><a href="#">IT Services</a></li>
+                <li><a href="#">Registrar</a></li>
+                <li><a href="#">Human Resources</a></li>
+                <li><a href="#">Campus Map</a></li>
+                <li><a href="#">Directory</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Contact Us</h3>
+              <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>123 Education Boulevard<br />Richmond, VA 23225</div>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div>(555) 123-4567</div>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div>info@Averiq.edu</div>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-clock"></i>
+                <div>Mon-Fri: 8:00 AM - 6:00 PM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <div class="container">
+            <p>
+              &copy; 2025 Averiq International University. All Rights Reserved.
+              | Accreditation | Privacy Policy | Title IX | Accessibility
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
 
     <script src="script.js"></script>
   </body>
