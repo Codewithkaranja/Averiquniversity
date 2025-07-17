@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Portal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-screen" id="loginScreen">
+      <h2>Faculty Login</h2>
+      <input type="text" id="facultyName" placeholder="Enter your name" />
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div class="portal" id="portal" style="display: none">
+      <header>
+        <h1>Welcome, <span id="displayName"></span></h1>
+        <button onclick="logout()">Logout</button>
+      </header>
+
+      <nav>
+        <button onclick="showSection('profile')">Profile</button>
+        <button onclick="showSection('courses')">Courses</button>
+        <button onclick="showSection('reports')">Student Reports</button>
+      </nav>
+
+      <main>
+        <section id="profile" class="section active">
+          <h2>Faculty Profile</h2>
+          <p>Name: <span id="profileName"></span></p>
+          <p>Department: Computer Science</p>
+          <p>Email: faculty@university.edu</p>
+        </section>
+
+        <section id="courses" class="section">
+          <h2>Courses You Teach</h2>
+          <ul>
+            <li>Web Development - CS101</li>
+            <li>Database Systems - CS202</li>
+          </ul>
+          <p><em>Upload assignments and notes (feature coming soon).</em></p>
+        </section>
+
+        <section id="reports" class="section">
+          <h2>Student Reports</h2>
+          <ul>
+            <li>John Doe - Web Dev - Grade: A</li>
+            <li>Jane Smith - Database - Grade: B+</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
