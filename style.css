@@ -9,6 +9,9 @@
         --transition: all 0.3s ease;
         --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+        --font-base: "Poppins", sans-serif;
+       --font-heading: "Merriweather", serif;
+       --section-padding: 80px;
       }
 
       * {
@@ -16,10 +19,13 @@
         padding: 0;
         box-sizing: border-box;
       }
+      html {
+  scroll-behavior: smooth;
+}
 
 
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: var(--font-base);
         line-height: 1.6;
         color: var(--dark);
         background:url(https://thefsforum.co.uk/wp-content/uploads/2020/01/iStock-1022887944-cropped.jpg) no-repeat center center fixed;
@@ -33,7 +39,7 @@
       h2,
       h3,
       h4 {
-        font-family: "Merriweather", serif;
+        font-family: var(--font-heading);
         font-weight: 700;
         margin-bottom: 1rem;
         color: var(--primary);
@@ -76,6 +82,10 @@
       a:hover {
         color: var(--secondary);
       }
+      a:focus, button:focus {
+     outline: 2px dashed var(--accent);
+     outline-offset: 4px;
+     }
 
       .container {
         width: 90%;
@@ -84,7 +94,7 @@
         padding: 0 15px;
       }
 
-      .btn {
+      button, .btn {
         display: inline-block;
         padding: 12px 28px;
         background: var(--primary);
@@ -111,6 +121,7 @@
       }
 
       .btn-secondary:hover {
+        background: transparent;
         color: var(--secondary);
       }
 
@@ -623,16 +634,28 @@
      font-size: 1rem;
      width: 100%;
 }
-.fix-me ul{
- position: fixed;
-  background-color: white;
-  padding-top: 400px;
-  margin-left:0px
-
+.fixe-me {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 10px 0;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 .fix-me li{
+  margin:10px 0;
+ 
+ 
+
+}
+.fix-me ul{
   list-style: none;
   display: inline; 
+  margin:0;
+  padding:0;
  
 }
 
@@ -757,7 +780,7 @@
           top: 130px;
           left: -100%;
           flex-direction: column;
-          background: white;
+          background: rgba(255, 255, 255, 0.377);
           width: 100%;
           padding: 20px;
           box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -821,11 +844,20 @@
         .hero-btns {
           flex-direction: column;
         }
+
+        .fade-in {
+       animation: fadeIn 0.8s ease-in-out forwards;
+       }
+        @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+       to { opacity: 1; transform: translateY(0); }
+        }
+
       }
       .backtotop{
-        background-color: #8d9196;
+        background-color: #0a75f8;
         border-radius: 10px;
-        margin-top: 10px;
+        
 
       }
       .backtotop{
