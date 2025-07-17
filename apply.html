@@ -3,11 +3,176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="index.html" class="html" />
+    <title>Averiq International University</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #004080;
+        --secondary: #f4f4f4;
+        --accent: #ffc107;
+        --text: #333;
+        --transition: all 0.3s ease-in-out;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--secondary);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: var(--primary);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .applynow form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .input input,
+      .input select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: var(--transition);
+      }
+
+      .input input:focus,
+      .input select:focus {
+        border-color: var(--primary);
+        outline: none;
+      }
+
+      .submit {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: var(--transition);
+      }
+
+      .submit:hover {
+        background-color: var(--accent);
+        color: black;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: white;
+        padding: 60px 0 0;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-column h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .footer-column h3:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--secondary);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: white;
+        padding-left: 5px;
+      }
+
+      .contact-info {
+        margin-bottom: 15px;
+        display: flex;
+      }
+
+      .contact-info i {
+        margin-right: 15px;
+        color: var(--accent);
+        min-width: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    </style>
   </head>
   <body>
-    <!---apply here-->
+    <!-- Apply Form -->
     <section class="applynow" id="apply_now">
       <h2>Apply Now</h2>
       <div class="container">
@@ -16,36 +181,148 @@
           method="post"
         >
           <div class="input">
-            <input type="text" placeholder="First Name" />
+            <input type="text" placeholder="First Name" required />
           </div>
           <div class="input">
-            <input type="text" placeholder="Last Name" />
+            <input type="text" placeholder="Last Name" required />
           </div>
           <div class="input">
             <input
               type="number"
               name="phonenumber"
               placeholder="Phone Number"
+              required
             />
           </div>
           <div class="input">
-            <input type="email" name="email" id="email" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
           </div>
           <div class="input">
-            <select name="selectcourse" id="selectcourse">
-              <option value="SelectSchool">Select School</option>
+            <select name="selectcourse" id="selectcourse" required>
+              <option value="">Select School</option>
               <option value="Humanities">School of Humanities</option>
               <option value="Hospitality">School of Hospitality</option>
-              <option value="Education">school of Education</option>
+              <option value="Education">School of Education</option>
               <option value="Business">School of Business</option>
               <option value="Engineering">School of Engineering</option>
             </select>
           </div>
           <div>
-            <input type="Submit" value="Submit" class="submit" />
+            <input type="submit" value="Submit" class="submit" />
           </div>
         </form>
       </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="Contact_Us">
+      <footer>
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h3>Averiq International University</h3>
+              <p>
+                Excellence in education since 1992. Averiq International
+                University is dedicated to fostering intellectual growth,
+                creativity, and character in a diverse academic community.
+              </p>
+              <div class="social-links">
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100026515992622"
+                      target="_blank"
+                    >
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
+                      target="_blank"
+                    >
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://wa.me/254723562484" target="_blank">
+                      <img
+                        src="whatsapp logo.png"
+                        alt="WhatsApp"
+                        style="height: 20px; vertical-align: middle"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="#">About Averiq</a></li>
+                <li><a href="#">Academic Programs</a></li>
+                <li><a href="#">Admissions & Aid</a></li>
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Alumni</a></li>
+                <li><a href="#">News & Events</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Resources</h3>
+              <ul class="footer-links">
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Career Services</a></li>
+                <li><a href="#">IT Services</a></li>
+                <li><a href="#">Registrar</a></li>
+                <li><a href="#">Human Resources</a></li>
+                <li><a href="#">Campus Map</a></li>
+                <li><a href="#">Directory</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Contact Us</h3>
+              <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>123 Education Boulevard<br />Richmond, VA 23225</div>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <div>(555) 123-4567</div>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <div>info@Averiq.edu</div>
+              </div>
+              <div class="contact-info">
+                <i class="fas fa-clock"></i>
+                <div>Mon-Fri: 8:00 AM - 6:00 PM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <div class="container">
+            <p>
+              &copy; 2025 Averiq International University. All Rights Reserved.
+              | Accreditation | Privacy Policy | Title IX | Accessibility
+            </p>
+          </div>
+        </div>
+      </footer>
     </section>
   </body>
 </html>

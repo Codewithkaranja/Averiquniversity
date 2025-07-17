@@ -1,35 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    </section>
-    <!--misplaced-->
-    <a href="https://flutterwave.com/pay/your-link" class="btn"
-      >Pay with Flutterwave</a
-    >
-    <a href="https://www.paypal.com/paypalme/yourusername/29" class="btn"
-      >Pay with PayPal</a
-    >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Averiq International University - Certificate Payment</title>
+    <link rel="stylesheet" href="m-pesa.html" class="html" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #2b4d8c;
+        --accent: #f5a623;
+        --background: #f4f6fa;
+        --text: #333;
+        --transition: all 0.3s ease-in-out;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--background);
+        color: var(--text);
+        padding: 0;
+      }
+
+      .payment-section {
+        max-width: 700px;
+        margin: 60px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .logo {
+        max-width: 100px;
+        margin-bottom: 10px;
+      }
+
+      .uni-name {
+        font-size: 26px;
+        color: var(--primary);
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+      .btn {
+        display: inline-block;
+        margin: 12px 10px;
+        padding: 14px 28px;
+        background-color: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: var(--transition);
+      }
+
+      .btn:hover {
+        background-color: var(--accent);
+        color: #000;
+      }
+
+      .note {
+        font-size: 14px;
+        color: #555;
+        margin-top: 30px;
+      }
+
+      footer {
+        background-color: #1a1a1a;
+        color: #ccc;
+        padding: 50px 20px 30px;
+        font-size: 15px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column h3 {
+        color: white;
+        margin-bottom: 15px;
+      }
+
+      .footer-links,
+      .fix-me {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li,
+      .fix-me li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a,
+      .fix-me a {
+        color: #ccc;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover,
+      .fix-me a:hover {
+        color: var(--accent);
+      }
+
+      .social-links img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .contact-info {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .contact-info i {
+        color: var(--accent);
+        margin-top: 3px;
+      }
+
+      .copyright {
+        text-align: center;
+        font-size: 13px;
+        color: #888;
+        border-top: 1px solid #444;
+        padding-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .btn {
+          display: block;
+          width: 100%;
+          margin: 12px 0;
+        }
+
+        .payment-section {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <section class="payment-section">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Graduation_cap.svg/1024px-Graduation_cap.svg.png"
+        alt="University Logo"
+        class="logo"
+      />
+      <div class="uni-name">Averiq International University</div>
+
       <h2>Secure Your Certificate</h2>
-      <p>Choose your preferred payment method below:</p>
-
-      <a href="https://flutterwave.com/pay/YOURFLWLINK" class="btn"
-        >Pay with Flutterwave</a
-      >
-      <a href="https://paypal.me/YOURUSERNAME/29" class="btn"
-        >Pay with PayPal</a
-      >
-
-      <p style="margin-top: 20px">
-        After payment, please fill this short form to receive your certificate:
+      <p>
+        Choose your preferred payment method below. We support secure
+        international transactions.
       </p>
-      <a href="https://forms.gle/YOURFORMID" class="btn">Submit Details</a>
+
+      <a href="m-pesa.html" target="_blank" class="btn">Donate with M-PESA</a>
+      <a href="https://paypal.me/averiquniversity" target="_blank" class="btn"
+        >Donate with PayPal</a
+      >
+
+      <p>
+        After payment, please fill out this short form so we can deliver your
+        certificate via email:
+      </p>
+      <a href="https://forms.gle/YOURFORMID" target="_blank" class="btn"
+        >Submit Your Details</a
+      >
+
+      <div class="note">
+        ✅ You will receive your certificate via email within 24–48 hours.<br />
+        For support, contact: <strong>certificates@averiquniversity.edu</strong>
+      </div>
     </section>
 
-</body>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3>Averiq International University</h3>
+            <p>
+              Excellence in education since 1992. Averiq International
+              University is dedicated to fostering intellectual growth,
+              creativity, and character in a diverse academic community.
+            </p>
+            <div class="social-links">
+              <ul class="fix-me">
+                <li>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100026515992622"
+                    target="_blank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
+                    target="_blank"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://wa.me/254723562484" target="_blank"
+                    ><img src="whatsapp logo.png" alt="WhatsApp"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">About Averig</a></li>
+              <li><a href="#">Academic Programs</a></li>
+              <li><a href="#">Admissions & Aid</a></li>
+              <li><a href="#">Campus Life</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Alumni</a></li>
+              <li><a href="#">News & Events</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+              <li><a href="#">Library</a></li>
+              <li><a href="#">Career Services</a></li>
+              <li><a href="#">IT Services</a></li>
+              <li><a href="#">Registrar</a></li>
+              <li><a href="#">Human Resources</a></li>
+              <li><a href="#">Campus Map</a></li>
+              <li><a href="#">Directory</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>123 Education Boulevard<br />Richmond, VA 23225</div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>(555) 123-4567</div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>info@averig.edu</div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-clock"></i>
+              <div>Mon-Fri: 8:00 AM - 6:00 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>
+            &copy; 2025 Averiq International University. All Rights Reserved. |
+            Accreditation | Privacy Policy | Title IX | Accessibility
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
