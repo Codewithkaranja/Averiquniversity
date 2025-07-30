@@ -3,87 +3,366 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Averiq International University - Excellence in higher education with innovative programs and global community"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --primary: #004080;
-        --secondary: #f4f4f4;
+        --primary-dark: #002b57;
+        --primary-light: #e6f0fa;
+        --secondary: #f8f9fa;
         --accent: #ffc107;
+        --accent-dark: #e6ac00;
         --text: #333;
-        --transition: all 0.3s ease-in-out;
+        --text-light: #6c757d;
+        --light: #fff;
+        --dark: #212529;
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12),
+          0 1px 2px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1),
+          0 6px 6px rgba(0, 0, 0, 0.1);
+        --border-radius: 8px;
+        --border-radius-lg: 12px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background-color: var(--secondary);
         color: var(--text);
         line-height: 1.6;
+        overflow-x: hidden;
       }
 
-      h2 {
-        text-align: center;
-        margin-top: 20px;
-        color: var(--primary);
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
       }
 
       .container {
-        width: 90%;
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
       }
 
-      .applynow form {
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+
+      .section-title h2:after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--accent);
+        margin: 15px auto 0;
+        border-radius: 2px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--light);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-accent {
+        background-color: var(--accent);
+        color: var(--dark);
+      }
+
+      .btn-accent:hover {
+        background-color: var(--accent-dark);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background-color: var(--primary);
+        color: var(--light);
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+
+      .top-bar-content {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .top-bar-contact {
+        display: flex;
+        align-items: center;
         gap: 15px;
       }
 
-      .input input,
-      .input select {
+      .top-bar-contact i {
+        margin-right: 5px;
+        color: var(--accent);
+      }
+
+      .top-bar-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .top-bar-links a {
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .top-bar-links a:hover {
+        color: var(--light);
+      }
+
+      /* Header */
+      header {
+        background-color: var(--light);
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-wrapper {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+        color: var(--primary);
+      }
+
+      .logo-text span {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        display: block;
+      }
+
+      /* Navigation */
+      .nav-menu {
+        display: flex;
+        gap: 25px;
+      }
+
+      .nav-menu li {
+        position: relative;
+      }
+
+      .nav-menu a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        color: var(--text);
+        padding: 10px 0;
+      }
+
+      .nav-menu a.active,
+      .nav-menu a:hover {
+        color: var(--primary);
+      }
+
+      .nav-menu a.active:after,
+      .nav-menu li:hover:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        height: 3px;
+        background-color: var(--accent);
+        border-radius: 3px 3px 0 0;
+      }
+
+      /* Mobile Navigation Toggle */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--primary);
+        cursor: pointer;
+      }
+
+      /* Apply Now Section */
+      .applynow {
+        padding: 60px 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1470&q=80")
+            center/cover no-repeat;
+      }
+
+      .applynow .container {
+        max-width: 800px;
+      }
+
+      .applynow form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        background-color: rgba(255, 255, 255, 0.116);
+        padding: 30px;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .form-group {
+        margin-bottom: 0;
+      }
+
+      .form-group.full-width {
+        grid-column: 1 / -1;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: goldenrod;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-family: inherit;
+        font-size: 1rem;
         transition: var(--transition);
       }
 
-      .input input:focus,
-      .input select:focus {
+      .form-control:focus {
         border-color: var(--primary);
         outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.1);
       }
 
-      .submit {
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        padding: 12px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: var(--transition);
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
       }
 
-      .submit:hover {
-        background-color: var(--accent);
-        color: black;
+      .submit-btn {
+        grid-column: 1 / -1;
+        padding: 15px;
+        font-size: 1.1rem;
+        margin-top: 10px;
       }
 
       /* Footer */
       footer {
-        background: var(--primary);
-        color: white;
-        padding: 60px 0 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        color: var(--light);
+        padding: 80px 0 0;
+        position: relative;
+      }
+
+      footer:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(
+          90deg,
+          var(--accent) 0%,
+          var(--accent-dark) 100%
+        );
       }
 
       .footer-grid {
@@ -94,24 +373,26 @@
       }
 
       .footer-column h3 {
-        color: white;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-bottom: 25px;
         position: relative;
+        padding-bottom: 15px;
       }
 
       .footer-column h3:after {
         content: "";
         position: absolute;
-        bottom: -10px;
+        bottom: 0;
         left: 0;
         width: 50px;
         height: 3px;
-        background: var(--secondary);
+        background: var(--accent);
       }
 
-      .footer-links {
-        list-style: none;
+      .footer-column p {
+        opacity: 0.9;
+        margin-bottom: 20px;
+        line-height: 1.7;
       }
 
       .footer-links li {
@@ -120,23 +401,30 @@
 
       .footer-links a {
         color: rgba(255, 255, 255, 0.8);
+        display: inline-block;
         transition: var(--transition);
       }
 
       .footer-links a:hover {
-        color: white;
-        padding-left: 5px;
+        color: var(--light);
+        transform: translateX(5px);
       }
 
       .contact-info {
         margin-bottom: 15px;
         display: flex;
+        align-items: flex-start;
       }
 
       .contact-info i {
         margin-right: 15px;
         color: var(--accent);
-        min-width: 20px;
+        font-size: 1.1rem;
+        margin-top: 3px;
+      }
+
+      .contact-info div {
+        flex: 1;
       }
 
       .social-links {
@@ -158,172 +446,480 @@
       }
 
       .social-links a:hover {
-        background: var(--secondary);
+        background: var(--accent);
+        color: var(--dark);
         transform: translateY(-3px);
       }
 
       .copyright {
         text-align: center;
-        padding: 20px 0;
+        padding: 25px 0;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 0.9rem;
         color: rgba(255, 255, 255, 0.7);
       }
+
+      .copyright a {
+        color: var(--accent);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .nav-menu {
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .top-bar-content {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .main-header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-menu {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-menu.active {
+          display: flex;
+        }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .applynow form {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .logo {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .logo-text h1 {
+          font-size: 1.3rem;
+        }
+
+        .section-title h2 {
+          font-size: 1.5rem;
+        }
+      }
     </style>
-    <title>Averiq International University</title>
+    <title>Averiq International University | Apply Now</title>
   </head>
   <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="container top-bar-content">
+        <div class="top-bar-contact">
+          <i class="fas fa-phone"></i> (555) 123-4567
+          <i class="fas fa-envelope"></i> info@averiquniversity.edu
+        </div>
+        <div class="top-bar-links">
+          <a href="studentportal.html" target="_blank">
+            <i class="fas fa-sign-in-alt"></i> Student Portal
+          </a>
+          <a href="facultyportal.html" target="_blank">
+            <i class="fas fa-user"></i> Faculty Portal
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+      <div class="container main-header">
+        <div class="logo">
+          <div class="logo-wrapper">AU</div>
+          <div class="logo-text">
+            <h1>Averiq International University</h1>
+            <span>Excellence • Innovation • Community</span>
+          </div>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li>
+              <a href="index.html" class="active">
+                <i class="fa-solid fa-house"></i> Home
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                <i class="fas fa-newspaper"></i> About Us
+              </a>
+            </li>
+            <li>
+              <a href="programs.html">
+                <i class="fa-solid fa-book-open-reader"></i> Programs
+              </a>
+            </li>
+            <li>
+              <a href="apply.html" target="_blank">
+                <i class="fas fa-users"></i> Admissions
+              </a>
+            </li>
+            <li>
+              <a href="contacts.html">
+                <i class="fa-solid fa-phone"></i> Contacts
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <!-- Apply Form -->
     <section class="applynow" id="apply_now">
-      <h2>Apply Now</h2>
+      <div class="section-title">
+        <h2>Apply Now</h2>
+        <p>Begin your journey to academic excellence today</p>
+      </div>
       <div class="container">
         <form
           action="https://formsubmit.co/AveriqUniversity@gmail.com"
           method="post"
         >
-          <div class="input">
-            <input type="text" placeholder="First Name" required />
-          </div>
-          <div class="input">
-            <input type="text" placeholder="Last Name" required />
-          </div>
-          <div class="input">
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
             <input
-              type="number"
+              type="text"
+              id="fullname"
+              class="form-control"
+              placeholder="Full Name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phonenumber">Phone Number</label>
+            <input
+              type="tel"
+              id="phonenumber"
               name="phonenumber"
+              class="form-control"
               placeholder="Phone Number"
               required
             />
           </div>
-          <div class="input">
+
+          <div class="form-group">
+            <label for="email">Email</label>
             <input
               type="email"
-              name="email"
               id="email"
+              name="email"
+              class="form-control"
               placeholder="Email"
               required
             />
           </div>
-          <div class="input">
-            <select name="selectcourse" id="selectcourse" required>
-              <option value="">Select School</option>
-              <option value="Humanities">School of Humanities</option>
-              <option value="Hospitality">School of Hospitality</option>
-              <option value="Education">School of Education</option>
-              <option value="Business">School of Business</option>
-              <option value="Engineering">School of Engineering</option>
+
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select name="country" id="country" class="form-control" required>
+              <option value="">Select Country</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="GB">United Kingdom</option>
+              <option value="KE">Kenya</option>
+              <option value="NG">Nigeria</option>
+              <option value="ZA">South Africa</option>
+              <option value="GH">Ghana</option>
+              <option value="DE">Germany</option>
+              <option value="DK">Denmark</option>
+              <option value="QA">Qatar</option>
+              <option value="SA">Saudi Arabia</option>
+              <option value="Other">Other</option>
             </select>
           </div>
-          <div>
-            <input type="submit" value="Submit" class="submit" />
+
+          <div class="form-group">
+            <label for="degree_level">Degree Level</label>
+            <select
+              name="degree_level"
+              id="degree_level"
+              class="form-control"
+              required
+            >
+              <option value="">Select Degree Level</option>
+              <option value="Bachelor">Bachelor's</option>
+              <option value="Master">Master's</option>
+              <option value="Doctoral">Doctoral</option>
+              <option value="Bridge">Bridge Program</option>
+            </select>
           </div>
+
+          <div class="form-group">
+            <label for="class_setting">Class Setting</label>
+            <select
+              name="class_setting"
+              id="class_setting"
+              class="form-control"
+              required
+            >
+              <option value="">Select Class Setting</option>
+              <option value="campus">On Campus</option>
+              <option value="online">Online</option>
+              <option value="evening">Evening Classes</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="select_school">Select School</label>
+            <select
+              name="select_school"
+              id="select_school"
+              class="form-control"
+              required
+            >
+              <option value="">Select School</option>
+              <option value="Business">School of Business</option>
+              <option value="Education">School of Education</option>
+              <option value="Engineering">School of Engineering</option>
+              <option value="HealthScience">School of Health Sciences</option>
+              <option value="Hospitality">School of Hospitality</option>
+              <option value="Humanities">School of Humanities</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="area_of_study">Area of Study</label>
+            <select
+              name="area_of_study"
+              id="area_of_study"
+              class="form-control"
+              required
+            >
+              <option value="">Select Area of Study</option>
+              <option value="Business">Business</option>
+              <option value="Counselling">Counselling</option>
+              <option value="Criminal Justice">Criminal Justice</option>
+              <option value="Digital Media">Digital Media</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Fine Arts">Fine Arts</option>
+              <option value="HealthCare">HealthCare</option>
+              <option value="Language">Language</option>
+              <option value="Legal Studies">Legal Studies</option>
+              <option value="Ministry">Ministry</option>
+              <option value="Nursing">Nursing</option>
+              <option value="Psychology">Psychology</option>
+              <option value="Science">Science</option>
+              <option value="Teaching">Teaching</option>
+              <option value="Technology">Technology</option>
+              <option value="Theology">Theology</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">Additional Information</label>
+            <textarea
+              name="message"
+              id="message"
+              class="form-control"
+              placeholder="Tell us more about your academic goals and interests"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            Submit Application
+          </button>
         </form>
       </div>
     </section>
 
     <!-- Footer -->
-    <section id="Contact_Us">
-      <footer>
-        <div class="container">
-          <div class="footer-grid">
-            <div class="footer-column">
-              <h3>Averiq International University</h3>
-              <p>
-                Excellence in education since 1992. Averiq International
-                University is dedicated to fostering intellectual growth,
-                creativity, and character in a diverse academic community.
-              </p>
-              <div class="social-links">
-                <ul>
-                  <li>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=100026515992622"
-                      target="_blank"
-                    >
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
-                      target="_blank"
-                    >
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://wa.me/254723562484" target="_blank">
-                      <img
-                        src="whatsapp logo.png"
-                        alt="WhatsApp"
-                        style="height: 20px; vertical-align: middle"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="footer-column">
-              <h3>Quick Links</h3>
-              <ul class="footer-links">
-                <li><a href="#">About Averiq</a></li>
-                <li><a href="#">Academic Programs</a></li>
-                <li><a href="#">Admissions & Aid</a></li>
-                <li><a href="#">Campus Life</a></li>
-                <li><a href="#">Research</a></li>
-                <li><a href="#">Alumni</a></li>
-                <li><a href="#">News & Events</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Resources</h3>
-              <ul class="footer-links">
-                <li><a href="#">Library</a></li>
-                <li><a href="#">Career Services</a></li>
-                <li><a href="#">IT Services</a></li>
-                <li><a href="#">Registrar</a></li>
-                <li><a href="#">Human Resources</a></li>
-                <li><a href="#">Campus Map</a></li>
-                <li><a href="#">Directory</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Contact Us</h3>
-              <div class="contact-info">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>123 Education Boulevard<br />Richmond, VA 23225</div>
-              </div>
-              <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <div>(555) 123-4567</div>
-              </div>
-              <div class="contact-info">
-                <i class="fas fa-envelope"></i>
-                <div>info@Averiq.edu</div>
-              </div>
-              <div class="contact-info">
-                <i class="fas fa-clock"></i>
-                <div>Mon-Fri: 8:00 AM - 6:00 PM</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="copyright">
-          <div class="container">
+    <footer id="Contact_Us">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3>Averiq International University</h3>
             <p>
-              &copy; 2025 Averiq International University. All Rights Reserved.
-              | Accreditation | Privacy Policy | Title IX | Accessibility
+              Excellence in education since 1992. Averiq International
+              University is dedicated to fostering intellectual growth,
+              creativity, and character in a diverse academic community.
             </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/profile.php?id=100026515992622"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/254723562484"
+                target="_blank"
+                aria-label="WhatsApp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">About Averiq</a></li>
+              <li><a href="#">Academic Programs</a></li>
+              <li><a href="#">Admissions & Aid</a></li>
+              <li><a href="#">Campus Life</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Alumni</a></li>
+              <li><a href="#">News & Events</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+              <li><a href="#">Library</a></li>
+              <li><a href="#">Career Services</a></li>
+              <li><a href="#">IT Services</a></li>
+              <li><a href="#">Registrar</a></li>
+              <li><a href="#">Human Resources</a></li>
+              <li><a href="#">Campus Map</a></li>
+              <li><a href="#">Directory</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>123 Education Boulevard<br />Richmond, VA 23225</div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>(555) 123-4567</div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>info@averiq.edu</div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-clock"></i>
+              <div>Mon-Fri: 8:00 AM - 6:00 PM</div>
+            </div>
           </div>
         </div>
-      </footer>
-    </section>
+      </div>
+
+      <div class="copyright">
+        <div class="container">
+          <p>
+            &copy; 2025 Averiq International University. All Rights Reserved. |
+            <a href="#">Accreditation</a> | <a href="#">Privacy Policy</a> |
+            <a href="#">Title IX</a> |
+            <a href="#">Accessibility</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle functionality
+      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      mobileMenuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        const icon = mobileMenuToggle.querySelector("i");
+        if (navMenu.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (navMenu.classList.contains("active")) {
+              navMenu.classList.remove("active");
+              const icon = mobileMenuToggle.querySelector("i");
+              icon.classList.remove("fa-times");
+              icon.classList.add("fa-bars");
+            }
+          }
+        });
+      });
+
+      // Form validation
+      const form = document.querySelector(".applynow form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          const requiredFields = form.querySelectorAll("[required]");
+          let isValid = true;
+
+          requiredFields.forEach((field) => {
+            if (!field.value.trim()) {
+              field.style.borderColor = "#dc3545";
+              isValid = false;
+            } else {
+              field.style.borderColor = "#ddd";
+            }
+          });
+
+          if (!isValid) {
+            e.preventDefault();
+            alert("Please fill in all required fields.");
+          }
+        });
+      }
+    </script>
   </body>
 </html>

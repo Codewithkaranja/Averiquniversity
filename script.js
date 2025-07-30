@@ -34,6 +34,7 @@
         document.querySelector(".hero").style.backgroundImage =
           'url("https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1950")';
       }
+      
       // student portal
       function login() {
   const name = document.getElementById("studentName").value.trim();

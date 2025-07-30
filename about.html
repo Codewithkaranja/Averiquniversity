@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Averiq</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ===== GLOBAL STYLES ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1470&q=80")
+            center/cover no-repeat;
+        color: #000000;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* ===== TOP BAR ===== */
+      .top-bar {
+        background: #003366;
+        color: white;
+        font-size: 14px;
+        padding: 8px 0;
+      }
+      .top-bar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .top-bar a {
+        color: #ffcc00;
+        margin-left: 40px;
+        transition: color 0.3s;
+      }
+      .top-bar a:hover {
+        color: white;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .main-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo-text h1 {
+        font-size: 20px;
+        color: #003366;
+      }
+      .logo-text span {
+        font-size: 12px;
+        color: #666;
+      }
+
+      /* ===== NAVIGATION ===== */
+      .nav-menu {
+        display: flex;
+        gap: 25px;
+      }
+      .nav-menu li {
+        display: flex;
+        align-items: center;
+      }
+      .nav-menu a {
+        color: #003366;
+        font-weight: 500;
+        transition: color 0.3s;
+        margin-left: 5px;
+      }
+      .nav-menu a:hover,
+      .nav-menu a.active {
+        color: #ffcc00;
+      }
+      .header-btns .btn {
+        background: #ffcc00;
+        padding: 8px 14px;
+        padding-left: 4px;
+        border-radius: 5px;
+        color: #003366;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+      .header-btns .btn:hover {
+        background: #e6b800;
+      }
+      .mobile-toggle {
+        display: none;
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      /* ===== MENU OVERLAY ===== */
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+      }
+      .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* ===== WELCOME SECTION ===== */
+      .welcome {
+        background: #fff;
+        padding: 60px 0;
+      }
+      .welcome-container {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .welcome-image img {
+        max-width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .welcome-content h2 {
+        color: #003366;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .welcome-content p {
+        margin-bottom: 10px;
+      }
+      .president-signature {
+        font-weight: bold;
+        color: #555;
+        margin-top: 15px;
+      }
+
+      /* ===== QUICK LINKS ===== */
+      .quick-links {
+        background: #f4f7fb;
+        padding: 50px 0;
+      }
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+      .quick-link-card {
+        background: white;
+        padding: 25px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+      .quick-link-card:hover {
+        transform: translateY(-8px);
+      }
+      .quick-link-card i {
+        font-size: 35px;
+        color: #003366;
+        margin-bottom: 10px;
+      }
+      .quick-link-card .btn {
+        display: inline-block;
+        background: #003366;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      .quick-link-card .btn:hover {
+        background: #002244;
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      #testimonials {
+        background: white;
+        padding: 50px 0;
+      }
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .testimonial-card {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      .testimonial-content {
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      /* ===== STATS ===== */
+      .stats {
+        background: #003366;
+        color: white;
+        padding: 50px 0;
+        text-align: center;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+      }
+      .stat-item i {
+        font-size: 30px;
+        color: #ffcc00;
+        margin-bottom: 10px;
+      }
+
+      /* ===== NEWS ===== */
+      .news {
+        background: white;
+        padding: 50px 0;
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+      .news-card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      .news-card:hover {
+        transform: translateY(-5px);
+      }
+      .news-img img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      .news-content {
+        padding: 15px;
+      }
+      .news-date {
+        font-size: 12px;
+        color: #999;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #002244;
+        color: white;
+        padding: 40px 0 20px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+      }
+      .footer-column h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #ffcc00;
+      }
+      .footer-links li {
+        margin: 6px 0;
+      }
+      .footer-links a {
+        color: #ddd;
+        transition: color 0.3s;
+      }
+      .footer-links a:hover {
+        color: white;
+      }
+      .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+      }
+      .social-links ul {
+        display: flex;
+        gap: 10px;
+      }
+      .social-links i {
+        font-size: 16px;
+        color: #ffcc00;
+      }
+      .copyright {
+        text-align: center;
+        padding-top: 15px;
+        font-size: 13px;
+        color: #aaa;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* ===== BACK TO TOP ===== */
+      .backtotop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s;
+      }
+      .backtotop.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .backtotop a {
+        background: #003366;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50px;
+        font-size: 14px;
+        transition: background 0.3s;
+      }
+      .backtotop a:hover {
+        background: #ffcc00;
+        color: #003366;
+      }
+
+      /* ===== MOBILE MENU ===== */
+      @keyframes fadeInMenu {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: absolute;
+          top: 60px;
+          right: 10px;
+          flex-direction: column;
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          width: 220px;
+          padding: 15px;
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease, opacity 0.4s ease;
+          z-index: 1000;
+        }
+        .nav-menu.active {
+          max-height: 400px;
+          opacity: 1;
+        }
+        .nav-menu li {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        .nav-menu.active li {
+          animation: fadeInMenu 0.3s ease forwards;
+        }
+        .nav-menu.active li:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        .nav-menu.active li:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        .nav-menu.active li:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        .nav-menu.active li:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        .nav-menu.active li:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+        .welcome-container {
+          flex-direction: column;
+          text-align: center;
+        }
+        .welcome-image img {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container top-bar-content">
+        <div class="top-bar-contact">
+          <i class="fas fa-phone"></i> (555) 123-4567 |
+          <i class="fas fa-envelope"></i> info@averiquniversity.edu
+        </div>
+        <div class="top-bar-links">
+          <a href="#"><i class="fas fa-sign-in-alt"></i> Student Portal</a>
+          <a href="#"><i class="fas fa-user"></i> Faculty Portal</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container main-header">
+        <div class="logo">
+          <svg width="60" height="60" viewBox="0 0 60 60">
+            <circle cx="30" cy="30" r="28" fill="#003366" />
+            <text
+              x="30"
+              y="35"
+              text-anchor="middle"
+              fill="#FFCC00"
+              font-size="24"
+              font-weight="bold"
+            >
+              AU
+            </text>
+          </svg>
+          <div class="logo-text">
+            <h1>Averiq International University</h1>
+            <span>Excellence • Innovation • Community</span>
+          </div>
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li>
+              <i class="fa-solid fa-house"></i
+              ><a href="index.html" class="active">Home</a>
+            </li>
+            <li>
+              <i class="fas fa-newspaper"></i><a href="about.html">About Us</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-book-open-reader"></i
+              ><a href="programs.html">Programs</a>
+            </li>
+            <li>
+              <i class="fas fa-users"></i><a href="apply.html">Admissions</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i
+              ><a href="contacts.html">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-btns">
+          <a href="apply.html" class="btn btn-secondary">Apply Now</a>
+        </div>
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- OVERLAY -->
+    <div class="menu-overlay"></div>
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome">
+      <div class="container welcome-container">
+        <div class="welcome-image">
+          <img
+            src="https://randomuser.me/api/portraits/women/65.jpg"
+            alt="Welcome Image"
+          />
+        </div>
+        <div class="welcome-content">
+          <h2>Welcome from Our President</h2>
+          <p>Dear Students, Faculty, and Visitors,</p>
+          <p>
+            Welcome to Averiq International University, where we have been
+            fostering academic excellence and personal growth for over 30 years.
+          </p>
+          <p class="president-signature">
+            Prof. Brenda Michaels<br />President, Averiq International
+            University
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="quick-links">
+      <div class="container">
+        <div class="quick-links-grid">
+          <div class="quick-link-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Apply Now</h3>
+            <p>
+              Begin your journey to academic excellence at Averiq International
+              University
+            </p>
+            <a href="apply.html" class="btn">Start Application</a>
+          </div>
+          <div class="quick-link-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Visit Campus</h3>
+            <p>
+              Experience our beautiful campus and vibrant community firsthand
+            </p>
+            <a href="about.html" class="btn">Schedule Tour</a>
+          </div>
+          <div class="quick-link-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Donate</h3>
+            <p>Support student scholarships and innovative academic programs</p>
+            <a href="#" class="btn">Make a Gift</a>
+          </div>
+          <div class="quick-link-card">
+            <i class="fas fa-comments"></i>
+            <h3>Contact Us</h3>
+            <p>Have questions? Our admissions team is ready to assist you</p>
+            <a href="contacts.html" class="btn">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="programs-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Choosing Averiq International University was the best decision
+                I have ever made."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200"
+                alt="Student"
+              />
+              <div>
+                <h4>Lewis Rodriguez</h4>
+                <p>Computer Science, Class of 2015</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "The small class sizes allowed me to form meaningful
+                relationships with faculty and peers."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200"
+                alt="Student"
+              />
+              <div>
+                <h4>Sarah Johnson</h4>
+                <p>Business Administration, Class of 2019</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "As an international student, I felt at home immediately with
+                the support provided here."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200"
+                alt="Student"
+              />
+              <div>
+                <h4>Priya Sharma</h4>
+                <p>Biomedical Engineering, Class of 2022</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="container">
+        <h2>By The Numbers</h2>
+        <p>Our commitment to excellence in higher education</p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <i class="fas fa-user-graduate"></i>
+            <h3>25,000+</h3>
+            <p>Students Enrolled</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3>1,200+</h3>
+            <p>Faculty Members</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-globe-americas"></i>
+            <h3>110+</h3>
+            <p>Countries Represented</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-flask"></i>
+            <h3>85+</h3>
+            <p>Research Centers</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="news">
+      <div class="container">
+        <h2>Campus News & Events</h2>
+        <div class="news-grid">
+          <div class="news-card">
+            <div class="news-img">
+              <img
+                src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600"
+                alt=""
+              />
+            </div>
+            <div class="news-content">
+              <div class="news-date">June 15, 2015</div>
+              <h3>DU Researchers Awarded $2.5M NSF Grant</h3>
+              <p>
+                Averiq scientists receive major funding for sustainable energy
+                research.
+              </p>
+              <a href="#" class="btn">Read More</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-img">
+              <img
+                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600"
+                alt=""
+              />
+            </div>
+
+            <div class="news-content">
+              <div class="news-date">May 28, 2019</div>
+              <h3>Center for Innovation Groundbreaking</h3>
+              <p>
+                University breaks ground on new $75 million interdisciplinary
+                research facility.
+              </p>
+              <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="news-content"></div>
+          </div>
+          <div class="news-card">
+            <div class="news-img">
+              <img
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600"
+                alt=""
+              />
+            </div>
+            <div class="news-date">October 28, 2023</div>
+            <h3>Class of 2023 Commencement Ceremony</h3>
+            <p>
+              Over 1,200 students graduate in Averiq International University's
+              31st exercises.
+            </p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>Averiq International University</h3>
+          <p>Excellence in education since 1992.</p>
+          <div class="social-links">
+            <ul>
+              <li>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Averiq</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Career Services</a></li>
+            <li><a href="#">IT Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>123 Education Blvd<br />Richmond, VA 23225</div>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <div>(555) 123-4567</div>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-envelope"></i>
+            <div>info@Averiq.edu</div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Averiq International University. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <div class="backtotop">
+      <a href="#">↑</a>
+    </div>
+
+    <script>
+      // Mobile menu toggle
+      const toggle = document.querySelector(".mobile-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+      const overlay = document.querySelector(".menu-overlay");
+      toggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        overlay.classList.toggle("active");
+      });
+      overlay.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+
+      // Back to top button
+      const backToTop = document.querySelector(".backtotop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("show");
+        } else {
+          backToTop.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>
